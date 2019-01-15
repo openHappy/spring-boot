@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2016 the original author or authors.
+ * Copyright 2012-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ public class SampleHateoasApplicationTests {
 	private TestRestTemplate restTemplate;
 
 	@Test
-	public void hasHalLinks() throws Exception {
+	public void hasHalLinks() {
 		ResponseEntity<String> entity = this.restTemplate.getForEntity("/customers/1",
 				String.class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -51,7 +51,7 @@ public class SampleHateoasApplicationTests {
 	}
 
 	@Test
-	public void producesJsonWhenXmlIsPreferred() throws Exception {
+	public void producesJsonWhenXmlIsPreferred() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.set(HttpHeaders.ACCEPT, "application/xml;q=0.9,application/json;q=0.8");
 		HttpEntity<?> request = new HttpEntity<>(headers);

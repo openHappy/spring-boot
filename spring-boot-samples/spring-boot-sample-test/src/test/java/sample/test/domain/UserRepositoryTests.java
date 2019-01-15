@@ -1,5 +1,5 @@
 /*
- * Copyright 2012-2016 the original author or authors.
+ * Copyright 2012-2018 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,7 +45,7 @@ public class UserRepositoryTests {
 	private UserRepository repository;
 
 	@Test
-	public void findByUsernameShouldReturnUser() throws Exception {
+	public void findByUsernameShouldReturnUser() {
 		this.entityManager.persist(new User("sboot", VIN));
 		User user = this.repository.findByUsername("sboot");
 		assertThat(user.getUsername()).isEqualTo("sboot");
@@ -53,7 +53,7 @@ public class UserRepositoryTests {
 	}
 
 	@Test
-	public void findByUsernameWhenNoUserShouldReturnNull() throws Exception {
+	public void findByUsernameWhenNoUserShouldReturnNull() {
 		this.entityManager.persist(new User("sboot", VIN));
 		User user = this.repository.findByUsername("mmouse");
 		assertThat(user).isNull();
